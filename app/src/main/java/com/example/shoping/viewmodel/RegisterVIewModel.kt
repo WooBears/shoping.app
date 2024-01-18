@@ -54,7 +54,6 @@ class RegisterVIewModel @Inject constructor(
             }
         }
     }
-
     private fun saveUserInfo(userUid: String, user: User) {
         db.collection(USER_COLLECTION)
             .document(userUid)
@@ -65,7 +64,6 @@ class RegisterVIewModel @Inject constructor(
                 _register.value = Resource.Error(it.message.toString())
             }
     }
-
     private fun checkValidation(user: User, password: String) : Boolean
     {
         val emailValidation = validateEmail(user.email)

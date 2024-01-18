@@ -25,7 +25,9 @@ class LoginViewModel @Inject constructor(
 
     fun login(email: String, password: String)
     {
-        viewModelScope.launch { _login.emit(Resource.Loading()) }
+        viewModelScope.launch {
+            _login.emit(Resource.Loading())
+        }
         firebaseAuth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
               viewModelScope.launch {
@@ -57,6 +59,5 @@ class LoginViewModel @Inject constructor(
                         _resetPassword.emit(Resource.Error(it.message.toString()))
                     }
                 }
-
     }
 }

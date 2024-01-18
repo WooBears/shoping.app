@@ -10,14 +10,10 @@ class HomeViewpagerAdapter(
     fm: FragmentManager,
     lifecycle: androidx.lifecycle.Lifecycle
 ) : FragmentStateAdapter(fm,lifecycle){
-
     override fun getItemCount(): Int {
         return fragments.size
     }
-
     override fun createFragment(position: Int): Fragment {
         return fragments[position]
     }
-
-
 }

@@ -112,6 +112,7 @@
             android:text="Register"
             app:spinning_bar_color="@color/white"/>
 
+
         <ImageView
             android:id="@+id/facebookRegisterLogin"
             android:layout_width="wrap_content"

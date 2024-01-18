@@ -14,6 +14,7 @@ import com.example.shoping.R
 import com.example.shoping.activities.ShopingActivity
 import com.example.shoping.databinding.FragmentLoginBinding
 import com.example.shoping.dialog.setupBottomSheetDialog
+import com.example.shoping.local.Pref
 import com.example.shoping.util.Resource
 import com.example.shoping.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -28,6 +29,9 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel>()
 
+    private val pref by lazy {
+        Pref(requireContext())
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +39,6 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -43,10 +46,14 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
+        binding.edEmailLogin.setText(pref.getLogin())
+        binding.edPasswordLogin.setText(pref.getPassword())
         binding.apply {
             btLoginLogin.setOnClickListener {
                 val email = edEmailLogin.text.toString().trim()
                 val password = edPasswordLogin.text.toString()
+                pref.saveLogin(email)
+                pref.savePassword(password)
                 viewModel.login(email,password)
             }
         }

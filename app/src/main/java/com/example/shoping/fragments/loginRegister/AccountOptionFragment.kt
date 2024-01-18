@@ -17,7 +17,7 @@ class AccountOptionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAccountOptionBinding.inflate(inflater)
         return binding.root
     }

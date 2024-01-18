@@ -14,10 +14,10 @@
         android:theme="@style/Theme.Shoping"
         tools:targetApi="31" >
         <activity
-            android:name=".activities.LoginRegisterActivity"
+            android:name=".activities.ShopingActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ShopingActivity"
+            android:name=".activities.LoginRegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
